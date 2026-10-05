@@ -4,42 +4,188 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src https://*.workers.dev; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'">
-<title>Portfolio</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600&family=IBM+Plex+Mono&display=swap">
-
+<title>Ahmed Alvee</title>
+<meta name="description" content="Solutions Architect, AI and automation engineering. MBA at RSM.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600&display=swap">
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 <style>
-  :root { --ink:#14110D; --signal:#F0562D; --tint:#FBEAE1; --page:#fff; }
+  :root { --forest:#163300; --green:#9FE870; --mint:#E2F6D5; --ink:#0E0F0C; --grey:#454745; --page:#fff; }
   * { box-sizing:border-box; }
-  body { margin:0; background:var(--page); color:var(--ink); font:16px/1.5 'Bricolage Grotesque',system-ui,sans-serif; }
-  #launch { position:fixed; right:16px; bottom:16px; }
-  #panel { position:fixed; right:16px; bottom:16px; width:min(380px,calc(100vw - 32px)); height:min(560px,calc(100vh - 32px)); background:var(--page); border-radius:12px; box-shadow:0 8px 32px rgba(20,17,13,.18); display:none; flex-direction:column; padding:12px; gap:8px; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--page); color:var(--ink); font:18px/1.55 Inter,system-ui,sans-serif; }
+  a { color:inherit; }
+  .wrap { max-width:960px; margin:0 auto; padding:0 20px; }
+  h1, h2 { font-family:Anton,Impact,sans-serif; font-weight:400; text-transform:uppercase; line-height:.95; margin:0; }
+  h2 { font-size:clamp(36px,6vw,56px); color:var(--forest); margin-bottom:24px; }
+  .btn { display:inline-block; background:var(--green); color:var(--forest); font:600 18px Inter,sans-serif; padding:14px 28px; border:0; border-radius:999px; cursor:pointer; text-decoration:none; }
+  .btn:hover { background:#8ad95f; }
+  .btn:disabled { opacity:.5; cursor:default; }
+
+  .hero { background:var(--forest); color:var(--green); padding:72px 0 80px; }
+  .hero h1 { font-size:clamp(64px,14vw,150px); }
+  .hero p { color:#fff; max-width:34ch; font-size:clamp(20px,3vw,26px); margin:24px 0 32px; }
+  .hero nav { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+  .hero nav a.link { color:#fff; padding:14px 8px; }
+
+  section { padding:64px 0; }
+  .stats { background:var(--mint); }
+  .stats ul { list-style:none; margin:0; padding:0; display:grid; gap:24px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
+  .stats b { display:block; font:400 clamp(40px,6vw,56px)/1 Anton,Impact,sans-serif; color:var(--forest); text-transform:uppercase; }
+  .stats span { color:var(--grey); }
+
+  .job { display:grid; gap:4px 32px; grid-template-columns:200px 1fr; padding:24px 0; border-top:1px solid #e8ebe6; }
+  .job:first-of-type { border-top:0; }
+  .job .when { color:var(--grey); font-size:15px; }
+  .job h3 { margin:0; font-size:20px; }
+  .job .org { color:var(--grey); margin-bottom:8px; }
+  .job ul { margin:0; padding-left:20px; }
+  .job li { margin-bottom:6px; }
+  @media (max-width:640px) { .job { grid-template-columns:1fr; } }
+
+  .pills { display:flex; flex-wrap:wrap; gap:8px; padding:0; margin:0; list-style:none; }
+  .pills li { background:var(--mint); color:var(--forest); border-radius:999px; padding:6px 16px; font-size:15px; }
+
+  footer { background:var(--forest); color:#fff; padding:56px 0; }
+  footer h2 { color:var(--green); }
+  footer a { color:var(--green); }
+
+  /* chat */
+  #launch { position:fixed; right:16px; bottom:16px; box-shadow:0 8px 24px rgba(14,15,12,.25); z-index:5; }
+  #panel { position:fixed; right:16px; bottom:16px; width:min(380px,calc(100vw - 32px)); height:min(560px,calc(100vh - 32px)); background:var(--page); border-radius:24px; box-shadow:0 8px 32px rgba(14,15,12,.28); display:none; flex-direction:column; padding:16px; gap:8px; z-index:6; }
   #panel.open { display:flex; }
-  #panel header { display:flex; justify-content:space-between; align-items:center; font-weight:600; }
-  #panel header button { background:none; color:var(--ink); padding:4px 8px; }
-  .setup { display:grid; gap:8px; background:var(--tint); padding:16px; border-radius:8px; }
-  .setup label { font:12px 'IBM Plex Mono',monospace; display:grid; gap:4px; }
-  input, button { font:inherit; padding:10px 12px; border:0; border-radius:8px; }
-  input { background:#fff; color:var(--ink); width:100%; }
-  button { background:var(--signal); color:#fff; cursor:pointer; }
-  button:disabled { opacity:.5; cursor:default; }
+  #panel header { display:flex; justify-content:space-between; align-items:center; font-weight:600; color:var(--forest); }
+  #panel header button { background:none; color:var(--ink); padding:4px 10px; border:0; border-radius:999px; font:inherit; cursor:pointer; }
   #log { flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:8px; }
-  .msg { padding:10px 12px; border-radius:8px; white-space:pre-wrap; max-width:85%; }
-  .user { background:var(--ink); color:#fff; align-self:flex-end; }
-  .agent { background:var(--tint); align-self:flex-start; }
-  .note { font:12px 'IBM Plex Mono',monospace; opacity:.6; }
+  .msg { padding:10px 14px; border-radius:18px; white-space:pre-wrap; max-width:85%; font-size:16px; }
+  .user { background:var(--forest); color:#fff; align-self:flex-end; }
+  .agent { background:var(--mint); align-self:flex-start; }
+  .note { font-size:13px; color:var(--grey); }
   form { display:flex; gap:8px; }
+  input { font:inherit; font-size:16px; padding:10px 16px; border:2px solid var(--mint); border-radius:999px; width:100%; }
+  input:focus { outline:0; border-color:var(--forest); }
+  form .btn { padding:10px 20px; font-size:16px; }
 </style>
 </head>
 <body>
-<button id="launch">Ask about me</button>
+<header class="hero">
+  <div class="wrap">
+    <h1>Ahmed<br>Alvee</h1>
+    <p>Solutions architect building AI and automation that clinics and teams actually use.</p>
+    <nav>
+      <a class="btn" href="#ask" id="ask">Ask my agent</a>
+      <a class="link" href="#work">Experience</a>
+      <a class="link" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="stats">
+  <div class="wrap"><ul>
+    <li><b>3-5 days to under 1</b><span>Onboarding per clinic, rebuilt on AWS</span></li>
+    <li><b>1 week to 1 day</b><span>Lab and radiology batch turnaround</span></li>
+    <li><b>1 hour to 6-10 min</b><span>Per submission, with an AI clean-up pipeline</span></li>
+  </ul></div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <div class="job">
+      <div class="when">05/22 - 12/25<br>Singapore</div>
+      <div>
+        <h3>Solutions Architect</h3>
+        <div class="org">Mesh Bio (prev. Senior Solutions Engineer)</div>
+        <ul>
+          <li>Redesigned client onboarding on AWS (Lambda, SNS, SQS, Step Functions, HL7).</li>
+          <li>Built the lab and radiology data pipeline.</li>
+          <li>Architected an AI clean-up pipeline (LangGraph, Claude via Bedrock) for 30+ clinics.</li>
+          <li>Led 3 weeks of on-site deployment for the first overseas customer. It became a lighthouse account.</li>
+          <li>Hired and led 2-3 solutions engineers.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="job">
+      <div class="when">06/26 - 07/26<br>Rotterdam</div>
+      <div>
+        <h3>AI Strategy Consultant</h3>
+        <div class="org">RSM Living Management Project, client Truvalu</div>
+        <ul>
+          <li>Designed a 5-stage AI monitoring workflow for an impact investor, projected to cut monitoring time by about 45%.</li>
+          <li>Built and demoed AI tools and agents (Gemini, Claude, Tally.so) across all 5 stages.</li>
+          <li>Co-led the final presentation to Truvalu leadership.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="job">
+      <div class="when">09/21 - 04/22<br>Singapore</div>
+      <div>
+        <h3>Software Engineer</h3>
+        <div class="org">Creative Medtech Solutions</div>
+        <ul><li>Owned the annotation and interaction layer of the imaging system for a HIFU cancer-ablation robot, including DICOM export.</li></ul>
+      </div>
+    </div>
+    <div class="job">
+      <div class="when">02/18 - 08/21<br>Singapore</div>
+      <div>
+        <h3>Research Assistant</h3>
+        <div class="org">Singapore University of Technology and Design</div>
+        <ul>
+          <li>Owned locomotion code for a 12+ robot mapping system that covered 2 floors and 5 rooms in under 6 minutes.</li>
+          <li>Built an ML pipeline recognizing 7 hand gestures to command unmanned vehicles.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--mint)">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <ul class="pills">
+      <li>AWS</li><li>Amazon Bedrock</li><li>LangGraph</li><li>LangChain</li><li>Claude Code</li><li>Python</li>
+      <li>REST APIs</li><li>HL7</li><li>DICOM</li><li>Terraform</li><li>n8n</li><li>Microsoft Graph API</li>
+      <li>Gemini</li><li>Pydantic</li><li>ChromaDB</li><li>MongoDB</li><li>C++</li><li>Linux</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Education</h2>
+    <div class="job">
+      <div class="when">01/26 - 03/27</div>
+      <div><h3>MBA</h3><div class="org">Rotterdam School of Management, Erasmus University</div></div>
+    </div>
+    <div class="job">
+      <div class="when">2014 - 2017</div>
+      <div><h3>BEng (Honours), Engineering Product Development</h3><div class="org">Singapore University of Technology and Design</div></div>
+    </div>
+    <div class="job">
+      <div class="when">10/23</div>
+      <div><h3>AWS Certified Solutions Architect, Associate</h3><div class="org">Amazon Web Services</div></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p>
+      <a href="mailto:ahmedalv94@gmail.com">ahmedalv94@gmail.com</a><br>
+      <a href="https://linkedin.com/in/alveeahmed">linkedin.com/in/alveeahmed</a><br>
+      <a href="https://github.com/alvee1994">github.com/alvee1994</a>
+    </p>
+  </div>
+</footer>
+
+<button id="launch" class="btn">Ask my agent</button>
 <section id="panel" aria-label="Chat">
-  <header><span>Ask about me</span><button id="close" aria-label="Close">x</button></header>
+  <header><span>Ask about Ahmed</span><button id="close" aria-label="Close">x</button></header>
   <div id="log"></div>
   <div id="ts"></div>
   <form id="form">
     <input id="msg" placeholder="Type a question..." autocomplete="off" required>
-    <button id="go">Send</button>
+    <button id="go" class="btn">Send</button>
   </form>
 </section>
 <script src="config.js"></script>

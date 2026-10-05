@@ -99,3 +99,6 @@ function openChat() {
 }
 $('launch').addEventListener('click', openChat);
 $('close').addEventListener('click', () => { $('panel').classList.remove('open'); $('launch').style.display = ''; });
+
+// The hero button opens the same chat as the floating one.
+document.getElementById('ask').addEventListener('click', ev => { ev.preventDefault(); openChat(); });
