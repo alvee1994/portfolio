@@ -5,7 +5,7 @@ compatibility_date = "2025-09-01"
 [vars]
 # CHANGE: your GitHub Pages origin. https://<github-username>.github.io, no path, no trailing slash
 ALLOWED_ORIGIN = "https://alvee1994.github.io"
-MODEL = "claude-opus-5-5"  # cache minimum 512 tokens; Haiku 4.5 needs 4096
+MODEL = "claude-sonnet-5-5"  # effort is set to low in worker.js; cache minimum 512 tokens
 
 # Rate limits per visitor IP. namespace_id must differ from your other Workers.
 [[ratelimits]]

@@ -19,7 +19,7 @@ fs.unlinkSync(tmp);
 
 const env = {
   ALLOWED_ORIGIN: "http://localhost:8000",
-  MODEL: process.env.MODEL || (dir === "openrouter" ? "deepseek/deepseek-v3.2" : "claude-opus-5-5"),
+  MODEL: process.env.MODEL || (dir === "openrouter" ? "deepseek/deepseek-v3.2" : "claude-sonnet-5-5"),
   ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY,
   OPENROUTER_API_KEY: process.env.OPENROUTER_API_KEY,
   TURNSTILE_SECRET: "1x0000000000000000000000000000000AA", // Cloudflare test secret, always passes
