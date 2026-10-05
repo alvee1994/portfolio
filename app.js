@@ -91,7 +91,7 @@ async function start() {
 
 // One stateless call: the Worker gets the whole conversation and returns the next reply.
 async function chatTurn() {
-  const { reply, usage } = await api('/chat', { sid: session.sid, exp: session.exp, sig: session.sig, messages: history });
+  const { reply, usage } = await api('/chat', { sid: session.sid, exp: session.exp, sig: session.sig, messages: history.slice(-20) }); // the Worker keeps 20 anyway; this keeps the request small
   hideTyping();
   add('agent', reply);
   history.push({ role: 'assistant', content: reply });
