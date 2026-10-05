@@ -80,7 +80,6 @@ function turnstileToken() {
 }
 
 async function start() {
-  add('note', 'starting ' + backend.label + '...');
   if (!session) session = await api('/session', { token: await turnstileToken() }); // reopen after an error reuses it
   showTyping();
   try {
