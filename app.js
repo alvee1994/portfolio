@@ -23,6 +23,19 @@ function add(cls, text) {
   d.scrollIntoView({ block: 'end' });
 }
 
+// Three dots while the agent works. Removed when its text arrives or the turn ends.
+let dots = null;
+function showTyping() {
+  if (dots) return;
+  dots = document.createElement('div');
+  dots.className = 'msg agent typing';
+  dots.setAttribute('aria-label', 'The agent is typing');
+  for (let i = 0; i < 3; i++) dots.append(document.createElement('i'));
+  $('log').append(dots);
+  dots.scrollIntoView({ block: 'end' });
+}
+function hideTyping() { dots?.remove(); dots = null; }
+
 // Read events until the agent is idle again. An idle from before this turn is ignored.
 async function drain() {
   let started = false;
@@ -34,7 +47,7 @@ async function drain() {
       seen.add(e.id);
       if (e.type === 'session.status_running' || e.type === 'agent.message') started = true;
       if (e.type === 'session.status_idle' && !started) continue;
-      if (e.type === 'agent.message') add('agent', e.text);
+      if (e.type === 'agent.message') { hideTyping(); add('agent', e.text); showTyping(); }
       else if (e.type === 'session.status_terminated') return;
       else if (e.type === 'session.status_idle') {
         if (e.requires_action) add('note', 'The agent is waiting on something it cannot get here.');
@@ -65,12 +78,16 @@ function turnstileToken() {
 async function start() {
   add('note', 'starting...');
   if (!session) session = await api('/session', { token: await turnstileToken() }); // reopen after an error reuses it
-  await drain();
+  showTyping();
+  try { await drain(); } finally { hideTyping(); }
 }
 
 async function ask(text) {
-  await api('/send', { sid: session.sid, exp: session.exp, sig: session.sig, text });
-  await drain();
+  showTyping(); // right after the visitor's message, before the Worker answers
+  try {
+    await api('/send', { sid: session.sid, exp: session.exp, sig: session.sig, text });
+    await drain();
+  } finally { hideTyping(); }
 }
 
 $('form').addEventListener('submit', async ev => {
