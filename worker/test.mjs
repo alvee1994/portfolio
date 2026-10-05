@@ -1,7 +1,9 @@
-// Runs the Worker in-process against the real Anthropic API. Spends a little of the deployment budget.
-// Usage: set -a; . ../tmp.env; set +a; node test.mjs
+// Runs the Worker in-process against the real Anthropic API. Spends a few cents of the deployment budget.
+// Usage: ANTHROPIC_API_KEY=sk-ant-... DEPLOYMENT_ID=depl_... node test.mjs
 import worker from "./worker.js";
 import assert from "node:assert/strict";
+
+if (!process.env.ANTHROPIC_API_KEY || !process.env.DEPLOYMENT_ID) throw new Error("Set ANTHROPIC_API_KEY and DEPLOYMENT_ID first");
 
 const env = {
   ALLOWED_ORIGIN: "http://localhost:8000",
