@@ -9,13 +9,23 @@ Visitor -> GitHub Pages (this page) -> Cloudflare Worker -> Claude Managed Agent
 ```
 
 ```
-index.html          your page (content + chat widget)
-app.js              chat logic, no edits needed
-config.js           Worker address and Turnstile sitekey (public)
-worker/worker.js    the Worker, no edits needed
-worker/wrangler.toml  Worker settings
-worker/test.mjs     checks the Worker against the real API
+index.html                     your page (content + chat widget)
+app.js                         chat logic, no edits needed
+config.js                      Worker addresses and Turnstile sitekey (public)
+workers/console-deployment/    Worker for a Claude Managed Agent deployment (start a run, poll events)
+workers/claude-messages/       Worker for the Claude Messages API, CV cached in the system prompt for 1 hour
+workers/openrouter/            Worker for a non-Claude model through OpenRouter
+workers/profile.example.txt    template for the agent's knowledge; copy to workers/profile.txt (gitignored)
+workers/test-chat.mjs          checks claude-messages or openrouter against the real API
 ```
+
+You need only one Worker. Pick one, deploy it, and keep only its entry in `config.js`. Deploying more adds a switch on the page so you can compare them.
+
+| Worker | First reply | Knowledge lives | Key needed |
+|---|---|---|---|
+| console-deployment | slow (starts a session) | files on the Managed Agent | Anthropic |
+| claude-messages | fast | `workers/profile.txt`, cached | Anthropic |
+| openrouter | fast | `workers/profile.txt` | OpenRouter |
 
 ## Before you start
 
@@ -46,7 +56,7 @@ On platform.claude.com:
 
 ### 3. Deploy the Worker
 
-Edit `worker/wrangler.toml`. Change the two lines marked `CHANGE`:
+Edit `workers/<name>/wrangler.toml`. Change the two lines marked `CHANGE`:
 
 - `ALLOWED_ORIGIN = "https://<github-username>.github.io"` (no path, no trailing slash)
 - `DEPLOYMENT_ID = "depl_..."`
@@ -54,7 +64,7 @@ Edit `worker/wrangler.toml`. Change the two lines marked `CHANGE`:
 Then:
 
 ```
-cd worker
+cd workers/console-deployment
 npx wrangler login
 npx wrangler deploy
 openssl rand -hex 32 | npx wrangler secret put SIGNING_SECRET
@@ -98,7 +108,7 @@ Repo Settings > Pages > Source: Deploy from a branch > `main` / `(root)` > Save.
 - Turnstile stops bots from starting runs. The Worker refuses Cloudflare's test secret unless the page runs on localhost.
 - Each session id is signed by the Worker and expires after 2 hours. Visitors cannot read or write anyone else's session.
 - The browser can only start your one deployment and talk to its own session. It cannot pick another agent, file or budget.
-- Rate limits per visitor: 5 new chats a minute, 120 messages or polls a minute. Change them in `worker/wrangler.toml`.
+- Rate limits per visitor: 5 new chats a minute, 120 messages or polls a minute. Change them in `workers/<name>/wrangler.toml`.
 - Only the agent's text goes back to the page. Tool calls and results stay in the Worker.
 - The page inserts text with `textContent`, so nothing the agent or a visitor writes can run as HTML. A Content-Security-Policy in `index.html` allows only your own scripts and Turnstile.
 - A chat (and its cost) starts only when a visitor opens it.
@@ -116,12 +126,12 @@ Repo Settings > Pages > Source: Deploy from a branch > `main` / `(root)` > Save.
 | `error: Failed to fetch` | Wrong `CHAT_API`, or Worker not deployed | Check `config.js` and the address from `deploy` |
 | Old page after a push | Pages build or browser cache | Wait 2 minutes, hard refresh |
 
-Browser DevTools > Console and Network show the details. `npx wrangler tail` (in `worker/`) shows the Worker's logs live.
+Browser DevTools > Console and Network show the details. `npx wrangler tail` (in the Worker folder) shows the Worker's logs live.
 
 ## Check the Worker
 
 ```
-cd worker
+cd workers/console-deployment
 ANTHROPIC_API_KEY=sk-ant-... DEPLOYMENT_ID=depl_... node test.mjs
 ```
 

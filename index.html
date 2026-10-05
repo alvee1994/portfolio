@@ -55,6 +55,7 @@
   #panel.open { display:flex; }
   #panel header { display:flex; justify-content:space-between; align-items:center; font-weight:600; color:var(--forest); }
   #panel header button { background:none; color:var(--ink); padding:4px 10px; border:0; border-radius:999px; font:inherit; cursor:pointer; }
+  #backend { font:inherit; font-size:13px; border:2px solid var(--mint); border-radius:999px; padding:4px 8px; margin-left:auto; margin-right:4px; background:var(--page); color:var(--forest); }
   #log { flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:8px; }
   .msg { padding:10px 14px; border-radius:18px; white-space:pre-wrap; max-width:85%; font-size:16px; }
   .user { background:var(--forest); color:#fff; align-self:flex-end; }
@@ -188,7 +189,7 @@
 <!-- Chat widget. Works as is; app.js drives it. -->
 <button id="launch" class="btn">Ask my agent</button>
 <section id="panel" aria-label="Chat">
-  <header><span>Ask about Ahmed</span><button id="close" aria-label="Close">x</button></header>
+  <header><span>Ask about Ahmed</span><select id="backend" hidden aria-label="Agent back end"></select><button id="close" aria-label="Close">x</button></header>
   <div id="log"></div>
   <div id="ts"></div>
   <form id="form">

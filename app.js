@@ -1,11 +1,15 @@
 const $ = id => document.getElementById(id);
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-const API = window.CHAT_API;
-let session = null; // { sid, sig } from the Worker
+// Back ends from config.js. "session" = Managed Agent deployment (start a run, poll events).
+// "chat" = stateless Worker (Messages API or OpenRouter): the page keeps the history and posts it each turn.
+const BACKENDS = window.BACKENDS;
+let backend = BACKENDS[0];
+let session = null; // signed ticket { sid, exp, sig } from the Worker
+let history = [];   // chat back ends only: assistant, user, assistant, ...
 const seen = new Set();
 
 async function api(path, body) {
-  const r = await fetch(API + path, {
+  const r = await fetch(backend.url + path, {
     method: body ? 'POST' : 'GET',
     headers: body ? { 'content-type': 'application/json' } : undefined,
     body: body ? JSON.stringify(body) : undefined,
@@ -76,17 +80,34 @@ function turnstileToken() {
 }
 
 async function start() {
-  add('note', 'starting...');
+  add('note', 'starting ' + backend.label + '...');
   if (!session) session = await api('/session', { token: await turnstileToken() }); // reopen after an error reuses it
   showTyping();
-  try { await drain(); } finally { hideTyping(); }
+  try {
+    if (backend.kind === 'chat') await chatTurn();
+    else await drain();
+  } finally { hideTyping(); }
+}
+
+// One stateless call: the Worker gets the whole conversation and returns the next reply.
+async function chatTurn() {
+  const { reply, usage } = await api('/chat', { sid: session.sid, exp: session.exp, sig: session.sig, messages: history });
+  hideTyping();
+  add('agent', reply);
+  history.push({ role: 'assistant', content: reply });
+  if (window.SHOW_USAGE && usage) add('note', 'tokens: ' + JSON.stringify(usage));
 }
 
 async function ask(text) {
   showTyping(); // right after the visitor's message, before the Worker answers
   try {
-    await api('/send', { sid: session.sid, exp: session.exp, sig: session.sig, text });
-    await drain();
+    if (backend.kind === 'chat') {
+      history.push({ role: 'user', content: text });
+      try { await chatTurn(); } catch (err) { history.pop(); throw err; } // keep the history alternating
+    } else {
+      await api('/send', { sid: session.sid, exp: session.exp, sig: session.sig, text });
+      await drain();
+    }
   } finally { hideTyping(); }
 }
 
@@ -115,6 +136,19 @@ function openChat() {
          .finally(() => { $('go').disabled = !session; });
 }
 $('launch').addEventListener('click', openChat);
+
+// Switching back end starts a fresh conversation (and a fresh bot check).
+if (BACKENDS.length > 1) {
+  const pick = $('backend');
+  for (const b of BACKENDS) pick.append(new Option(b.label, b.id));
+  pick.hidden = false;
+  pick.addEventListener('change', () => {
+    backend = BACKENDS.find(b => b.id === pick.value);
+    session = null; history = []; seen.clear(); opened = false;
+    $('log').replaceChildren();
+    openChat();
+  });
+}
 $('close').addEventListener('click', () => { $('panel').classList.remove('open'); $('launch').style.display = ''; });
 
 // The hero button opens the same chat as the floating one.
