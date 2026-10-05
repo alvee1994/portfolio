@@ -1,0 +1,26 @@
+name = "portfolio-agent"
+main = "worker.js"
+compatibility_date = "2025-09-01"
+
+[vars]
+# Exact origin of your GitHub Pages site (no path, no trailing slash)
+ALLOWED_ORIGIN = "https://alvee1994.github.io"
+# From platform.claude.com: your agent's deployment id (depl_...)
+DEPLOYMENT_ID = "PASTE_DEPLOYMENT_ID"
+
+# Rate limits per visitor IP. Starting a run costs money, so it is strict.
+[[ratelimits]]
+name = "START_LIMIT"
+namespace_id = "1001"
+simple = { limit = 5, period = 60 }
+
+[[ratelimits]]
+name = "MSG_LIMIT"
+namespace_id = "1002"
+simple = { limit = 120, period = 60 }  # the page polls once a second while the agent works
+
+# Secrets (never in this file):
+#   npx wrangler secret put ANTHROPIC_API_KEY
+#   npx wrangler secret put TURNSTILE_SECRET
+#   npx wrangler secret put SIGNING_SECRET     (any long random string: openssl rand -hex 32)
+# Local dev: same names in .dev.vars (see .dev.vars.example), then: npx wrangler dev

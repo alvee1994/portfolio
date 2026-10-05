@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src https://*.workers.dev; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<title>Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600&family=IBM+Plex+Mono&display=swap">
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+<style>
+  :root { --ink:#14110D; --signal:#F0562D; --tint:#FBEAE1; --page:#fff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--page); color:var(--ink); font:16px/1.5 'Bricolage Grotesque',system-ui,sans-serif; }
+  #launch { position:fixed; right:16px; bottom:16px; }
+  #panel { position:fixed; right:16px; bottom:16px; width:min(380px,calc(100vw - 32px)); height:min(560px,calc(100vh - 32px)); background:var(--page); border-radius:12px; box-shadow:0 8px 32px rgba(20,17,13,.18); display:none; flex-direction:column; padding:12px; gap:8px; }
+  #panel.open { display:flex; }
+  #panel header { display:flex; justify-content:space-between; align-items:center; font-weight:600; }
+  #panel header button { background:none; color:var(--ink); padding:4px 8px; }
+  .setup { display:grid; gap:8px; background:var(--tint); padding:16px; border-radius:8px; }
+  .setup label { font:12px 'IBM Plex Mono',monospace; display:grid; gap:4px; }
+  input, button { font:inherit; padding:10px 12px; border:0; border-radius:8px; }
+  input { background:#fff; color:var(--ink); width:100%; }
+  button { background:var(--signal); color:#fff; cursor:pointer; }
+  button:disabled { opacity:.5; cursor:default; }
+  #log { flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:8px; }
+  .msg { padding:10px 12px; border-radius:8px; white-space:pre-wrap; max-width:85%; }
+  .user { background:var(--ink); color:#fff; align-self:flex-end; }
+  .agent { background:var(--tint); align-self:flex-start; }
+  .note { font:12px 'IBM Plex Mono',monospace; opacity:.6; }
+  form { display:flex; gap:8px; }
+</style>
+</head>
+<body>
+<button id="launch">Ask about me</button>
+<section id="panel" aria-label="Chat">
+  <header><span>Ask about me</span><button id="close" aria-label="Close">x</button></header>
+  <div id="log"></div>
+  <div id="ts"></div>
+  <form id="form">
+    <input id="msg" placeholder="Type a question..." autocomplete="off" required>
+    <button id="go">Send</button>
+  </form>
+</section>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
