@@ -1,8 +1,8 @@
-# Publishes the repo root to GitHub Pages as plain static files on every push to main.
+# Publishes the repo root to GitHub Pages as plain static files on every push to live (Alvee's site). main is the student template.
 name: Deploy page
 on:
   push:
-    branches: [main]
+    branches: [live]
   workflow_dispatch:
 permissions:
   contents: read
