@@ -3,8 +3,8 @@
 // CHANGE: your Worker addresses, printed by `npx wrangler deploy`. No trailing slash.
 // The first entry is the default. Keep one entry to hide the switch. kind: "session" = Managed Agent deployment, "chat" = Messages API or OpenRouter.
 window.BACKENDS = [
-  { id: "messages",   label: "Claude API",    kind: "chat",    url: "https://worker-claude-messages.ahmedalv94.workers.dev" },
   { id: "openrouter", label: "OpenRouter",    kind: "chat",    url: "https://worker-openrouter.ahmedalv94.workers.dev" },
+  { id: "messages",   label: "Claude API",    kind: "chat",    url: "https://worker-claude-messages.ahmedalv94.workers.dev" },
   { id: "console",    label: "Managed Agent", kind: "session", url: "https://worker-claude-console-deployment.ahmedalv94.workers.dev" },
 ];
 
