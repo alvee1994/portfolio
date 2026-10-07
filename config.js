@@ -10,7 +10,7 @@ window.BACKENDS = [
 ];
 
 // First message in the chat. Shown as is, no model call.
-window.GREETING = "Hi, I'm Alvee's assistant. Ask me about Alvee's work in AI, automation, cloud or healthcare, or check when Alvee is free to meet.";
+window.GREETING = "Hi, I'm Alvee's assistant. Ask me about Alvee's work in AI, automation, cloud or healthcare.";
 
 // Show token counts (incl. cache reads) under each reply. Handy for a demo, off for a real portfolio.
 window.SHOW_USAGE = false;
