@@ -6,7 +6,7 @@
 
 **Why:** we learn to build an agent together, and you leave with your own portfolio you can share anywhere on the internet.
 
-**By the end of the session:** your page is live at `<username>.github.io/portfolio`. Visitors can chat with your agent, see your free time slots, and request a meeting.
+**By the end of the session:** your page is live at `<username>.github.io/portfolio`. Visitors can chat with your agent and see your free time slots.
 
 **We have about 45 minutes to build.** Please do Part A before you come, since we will not have time to cover installs during the session.
 
