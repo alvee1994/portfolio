@@ -5,7 +5,7 @@ compatibility_date = "2025-09-01"
 [vars]
 # CHANGE: your GitHub Pages origin. https://<github-username>.github.io, no path, no trailing slash
 ALLOWED_ORIGIN = "https://alvee1994.github.io"
-MODEL = "deepseek/deepseek-v3.2"  # any id from openrouter.ai/models
+MODEL = "anthropic/claude-haiku-5.5"  # needs zero data retention providers (worker.js pins zdr). Dashboard value wins with --keep-vars
 
 # Rate limits per visitor IP. namespace_id must differ from your other Workers.
 [[ratelimits]]
