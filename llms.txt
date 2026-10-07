@@ -1,0 +1,34 @@
+# Ahmed Alvee
+
+> Solutions architect building AI and automation that clinics and teams actually use. MBA candidate at Rotterdam School of Management (2026 to 2027). AWS Certified Solutions Architect, Associate.
+
+This page has an AI agent ("Ask my agent") that answers questions about Ahmed's work from his CV and notes.
+
+## Results
+
+- Clinic onboarding: 3 to 5 days down to under 1, rebuilt on AWS.
+- Lab and radiology batch turnaround: 1 week down to 1 day.
+- Data clean-up per submission: 1 hour down to 6 to 10 minutes, with an AI pipeline (LangGraph, Claude via Amazon Bedrock) for 30+ clinics.
+
+## Experience
+
+- Solutions Architect, Mesh Bio, Singapore (05/2022 to 12/2025, previously Senior Solutions Engineer). Redesigned client onboarding on AWS (Lambda, SNS, SQS, Step Functions, HL7). Built the lab and radiology data pipeline. Architected an AI clean-up pipeline for 30+ clinics. Led on-site deployment for the first overseas customer. Hired and led 2 to 3 solutions engineers.
+- AI Strategy Consultant, RSM Living Management Project, client Truvalu, Rotterdam (06/2026 to 07/2026). Designed a 5-stage AI monitoring workflow for an impact investor, projected to cut monitoring time by about 45%.
+- Software Engineer, Creative Medtech Solutions, Singapore (09/2021 to 04/2022). Imaging annotation and interaction layer for a HIFU cancer-ablation robot, including DICOM export.
+- Research Assistant, Singapore University of Technology and Design (02/2018 to 08/2021). Locomotion code for a 12+ robot mapping system. ML pipeline recognizing 7 hand gestures.
+
+## Education
+
+- MBA, Rotterdam School of Management, Erasmus University (01/2026 to 03/2027)
+- BEng (Honours), Engineering Product Development, Singapore University of Technology and Design (2014 to 2017)
+
+## Skills
+
+AWS, Amazon Bedrock, LangGraph, LangChain, Claude Code, Python, REST APIs, HL7, DICOM, Terraform, n8n, Microsoft Graph API, Gemini, Pydantic, ChromaDB, MongoDB, C++, Linux
+
+## Links
+
+- [Portfolio](https://alvee1994.github.io/portfolio/)
+- [LinkedIn](https://www.linkedin.com/in/alveeahmed)
+- [GitHub](https://github.com/alvee1994)
+- Email: ahmedalv94@gmail.com
