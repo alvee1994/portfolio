@@ -1,6 +1,6 @@
 # Ahmed Alvee
 
-> Solutions architect building AI and automation that clinics and teams actually use. MBA candidate at Rotterdam School of Management (2026 to 2027). AWS Certified Solutions Architect, Associate.
+> Solutions architect building AI and automation that clinics and teams actually use. MBA candidate at Rotterdam School of Management (2026 to 2027). AWS Certified Solutions Architect, Associate. Open to forward-deployed, solutions and AI consulting roles.
 
 This page has an AI agent ("Ask my agent") that answers questions about Ahmed's work from his CV and notes.
 
