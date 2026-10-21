@@ -8,6 +8,7 @@ node_modules/
 *.docx
 *.doc
 *.pdf
+!assets/Ahmed_Alvee_CV.pdf
 *.odt
 *.pages
 

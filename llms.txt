@@ -37,4 +37,5 @@ AWS, Amazon Bedrock, LangGraph, LangChain, Claude Code, Python, REST APIs, HL7, 
 - [Portfolio](https://alvee1994.github.io/portfolio/)
 - [LinkedIn](https://www.linkedin.com/in/alveeahmed)
 - [GitHub](https://github.com/alvee1994)
+- [CV (PDF)](https://alvee1994.github.io/portfolio/assets/Ahmed_Alvee_CV.pdf)
 - Email: ahmedalv94@gmail.com
