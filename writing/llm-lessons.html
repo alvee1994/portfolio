@@ -24,13 +24,11 @@
 <p class="crumb"><a href="../#writing">Writing</a></p>
 <h1>Lessons from using an LLM to clean up messy clinic data</h1>
 <p><em>Written from work I did in 2025, using Claude through Amazon Bedrock.</em></p>
-<p class="result"><strong>Result:</strong> I built an AI clean-up pipeline with LangGraph, Claude on Amazon Bedrock, Pydantic and ChromaDB. It cut per-submission time from about 1 hour to 6-10 minutes, including human review, for 30+ clinics.</p>
-<h2>Situation</h2>
+<p class="result">I built an AI clean-up pipeline with LangGraph, Claude on Amazon Bedrock, Pydantic and ChromaDB. It cut per-submission time from about 1 hour to 6-10 minutes, including human review, for 30+ clinics.</p>
+<h2>The problem</h2>
 <p>Mesh Bio is a Singapore health-tech company working with private healthcare providers. Clinics sent patient submissions for its health screening workflow as CSV and Excel files. Every vendor used its own column names, and each customer had its own list of health screening package names. A person cleaned each submission by hand, which took about an hour.</p>
-<h2>Task</h2>
 <p>I had to get an LLM to turn those files into clean, structured output a reviewer could trust. The model had to follow instructions closely, stay within cost, and fit the work inside the context window of the models available at the time.</p>
-<h2>Action</h2>
-<p>I learned six things while building it.</p>
+<h2>Six lessons</h2>
 <p><strong>1. Start with the raw file and read what the model does.</strong> I began with the file and the expected output in the system prompt and the first message, and watched the patterns. Testing across models showed that Claude Sonnet followed instructions best, so I used it.</p>
 <p><strong>2. If the model writes the same script every turn, make it a tool.</strong> Given a CSV or an Excel file, the model wrote a Python script from scratch each time. I turned those scripts into tools: look at the data, map column names, count records, write a new output CSV and track progress. The model then spent its effort on transforming the data.</p>
 <p><strong>3. Search for reference data instead of pasting it.</strong> The list of package names was long and different for each customer. I gave the model a ChromaDB vector search to find the closest match. A vendor might send "Silver Male" when the exact name was "Silver Package Male". If the vendor sent only "Silver Package", the model used the patient's gender to choose the Male or the Female package.</p>
@@ -46,7 +44,7 @@
 <p><strong>5. Check the output outside the model.</strong> The validation endpoint used Pydantic. It checked that patient identifiers were in capitals, that phone numbers had the country code separate from the number and were valid, and that emails were valid. One Pydantic model handled many records. In testing and on live submissions, when the first row passed, the rows after it passed the same checks. The model processed 10 to 20 records at a time. I reached this flow after many tests.</p>
 <p><strong>6. Keep a person in the loop.</strong> The model did not submit anything. It produced a cleaned file, and a human reviewer checked it and submitted it.</p>
 <p>I also built and tested a public endpoint that connected vendors to our LLM, in October and November 2025. I did not release it: it needed more testing, and its forecast cost was a factor.</p>
-<h2>Result</h2>
+<h2>The outcome</h2>
 <p>Per-submission time went from about 1 hour to 6-10 minutes, including human review, for 30+ clinics. A reviewer checked every output.</p>
 <nav class="more" aria-label="More writing">
 <span>More from Mesh Bio</span>

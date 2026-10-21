@@ -23,14 +23,14 @@
 <main class="wrap article">
 <p class="crumb"><a href="../#writing">Writing</a></p>
 <h1>From a week to a day: a lab and radiology pipeline for many clinics</h1>
-<p class="result"><strong>Result:</strong> I cut lab and radiology batch turnaround at Mesh Bio from about a week to a day by rebuilding the pipeline that brings clinic files into the platform. A new clinic became a configuration job, not a code change.</p>
-<h2>Situation</h2>
+<p class="result">I cut lab and radiology batch turnaround at Mesh Bio from about a week to a day by rebuilding the pipeline that brings clinic files into the platform. A new clinic became a configuration job, not a code change.</p>
+<h2>Where we started</h2>
 <p>Mesh Bio is a Singapore health-tech company working with private healthcare providers. Its most widely adopted product was a health screening workflow that used predictive analytics to score each patient's risk and recommendation logic to build the screening reports. I facilitated that by building the pipelines that fed it.</p>
 <p>Clinics and labs sent us lab and radiology files as HL7 and CSV. Inside those formats, every clinic or lab used its own coding system, naming conventions and units. The pipeline ran in every market we served.</p>
 <p>The first version was hardcoded: an S3 bucket fed a Lambda function that transformed the file and wrote to the database, with a separate Lambda for every clinic and lab combination. That meant duplicate code, many Lambdas to deploy, and code rewrites for small changes. Scheduled files arrived at the start of every hour, about 10,000 records an hour in Singapore alone, and clinics could also submit on demand. Those on-demand files had to be processed as fast as possible.</p>
-<h2>Task</h2>
+<h2>What it had to do</h2>
 <p>I had to make the pipeline handle many clinics without a code change for each one. It had to work fast on the hourly burst and on demand. It also had to run inside two limits: the Lambda concurrency limit of our AWS account, which other applications' Lambdas shared, and the MongoDB connection pool limit. Above all, the pipeline had to block any record it could not match to the right patient.</p>
-<h2>Action</h2>
+<h2>The redesign</h2>
 <p>I started the redesign in the first quarter of 2023. I designed it, worked through the design with our CTO, and my manager approved it. Going from one Lambda to a full orchestration took about 6 to 8 months, and we extended it afterwards for new downstream projects and new file formats.</p>
 <pre>Before:  S3 -&gt; Lambda &lt;-&gt; DB     (one hardcoded Lambda per clinic and lab combination)
 
@@ -47,7 +47,7 @@ After:   S3 -&gt; EventBridge Pipes (SQS + Lambda)
 <p><strong>Block bad data, do not write it.</strong> I used CloudWatch to separate error types and alert me and customer success. A count mismatch was rare. When one happened, we contacted the lab vendor to fix their submission.</p>
 <p>Once, a vendor moved to a different system without telling us. Data surged and the file pattern changed. The pipeline was already configurable, and the exception handling stopped the script instead of letting wrong data through. My solutions engineer and I handled it in a single day, and no wrong data reached a patient profile.</p>
 <p>Parsing 10,000 or more records could take 5 to 7 minutes. Clinics did not need to know when a file arrived. They opened the patient profile and the data was there.</p>
-<h2>Result</h2>
+<h2>What changed</h2>
 <p>Lab and radiology batch turnaround went from about a week to a day. The pipeline also helped cut onboarding per clinic from 3-5 days to under 1 day.</p>
 <p>I was promoted to Solutions Architect and became the hiring manager for a team of 2-3 solutions engineers. I handed this work to them and supervised its expansion and the development of new pipelines and APIs on top of it.</p>
 <nav class="more" aria-label="More writing">
