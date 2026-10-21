@@ -8,14 +8,20 @@ This page has an AI agent ("Ask my agent") that answers questions about Ahmed's 
 
 - Clinic onboarding: 3 to 5 days down to under 1, rebuilt on AWS.
 - Lab and radiology batch turnaround: 1 week down to 1 day.
-- Data clean-up per submission: 1 hour down to 6 to 10 minutes, with an AI pipeline (LangGraph, Claude via Amazon Bedrock) for 30+ clinics.
+- Data clean-up per submission: 1 hour down to 6 to 10 minutes, with an AI pipeline (LangGraph, Claude via Amazon Bedrock) for 30+ clinics, including human review.
 
 ## Experience
 
-- Solutions Architect, Mesh Bio, Singapore (05/2022 to 12/2025, previously Senior Solutions Engineer). Redesigned client onboarding on AWS (Lambda, SNS, SQS, Step Functions, HL7). Built the lab and radiology data pipeline. Architected an AI clean-up pipeline for 30+ clinics. Led on-site deployment for the first overseas customer. Hired and led 2 to 3 solutions engineers.
+- Solutions Architect, Mesh Bio, Singapore (05/2022 to 12/2025, previously Senior Solutions Engineer). Redesigned client onboarding on AWS (Lambda, SNS, SQS, Step Functions, HL7). Built the lab and radiology data pipeline. Architected an AI clean-up pipeline for 30+ clinics, with human review. Owned the integration APIs and led on-site deployment for the first overseas customer. Hired and led 2 to 3 solutions engineers.
 - AI Strategy Consultant, RSM Living Management Project, client Truvalu, Rotterdam (06/2026 to 07/2026). Designed a 5-stage AI monitoring workflow for an impact investor, projected to cut monitoring time by about 45%.
 - Software Engineer, Creative Medtech Solutions, Singapore (09/2021 to 04/2022). Imaging annotation and interaction layer for a HIFU cancer-ablation robot, including DICOM export.
 - Research Assistant, Singapore University of Technology and Design (02/2018 to 08/2021). Locomotion code for a 12+ robot mapping system. ML pipeline recognizing 7 hand gestures.
+
+## Writing
+
+- [From a week to a day: a lab and radiology pipeline for many clinics](https://alvee1994.github.io/portfolio/writing/pipeline.html)
+- [From one customer's deadline to an API-first platform](https://alvee1994.github.io/portfolio/writing/apis.html)
+- [Lessons from using an LLM to clean up messy clinic data](https://alvee1994.github.io/portfolio/writing/llm-lessons.html)
 
 ## Education
 

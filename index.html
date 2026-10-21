@@ -24,7 +24,7 @@
   "@context": "https://schema.org",
   "@type": "ProfilePage",
   "url": "https://alvee1994.github.io/portfolio/",
-  "dateModified": "2026-10-11",
+  "dateModified": "2026-10-21",
   "mainEntity": {
     "@type": "Person",
     "name": "Ahmed Alvee",
@@ -157,7 +157,7 @@
 </head>
 <body>
 <!-- CHANGE: everything between here and the chat widget is your page. Keep the ids "ask", "launch" and "panel". -->
-<div class="bar"><div class="wrap"><b><i>A</i>Ahmed Alvee</b><a href="#work">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></div>
+<div class="bar"><div class="wrap"><b><i>A</i>Ahmed Alvee</b><a href="#work">Experience</a><a href="#writing">Writing</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></div>
 
 <header class="hero">
   <canvas id="ribbon" aria-hidden="true"></canvas>
@@ -190,11 +190,13 @@
         <h3>Solutions Architect</h3>
         <div class="org">Mesh Bio (prev. Senior Solutions Engineer)</div>
         <ul>
-          <li>Redesigned client onboarding on AWS (Lambda, SNS, SQS, Step Functions, HL7).</li>
-          <li>Built the lab and radiology data pipeline.</li>
-          <li>Architected an AI clean-up pipeline (LangGraph, Claude via Bedrock) for 30+ clinics.</li>
-          <li>Led 3 weeks of on-site deployment for the first overseas customer. It became a lighthouse account.</li>
-          <li>Hired and led 2-3 solutions engineers.</li>
+          <li>Redesigned lab and radiology file processing into a configurable AWS pipeline (EventBridge Pipes, Step Functions), cutting batch turnaround from about a week to a day.</li>
+          <li>Blocked unmatched records with record count checks, and resolved a surprise vendor system change in one day with no wrong data reaching a patient.</li>
+          <li>Helped cut clinic onboarding from 3-5 days to under 1 day.</li>
+          <li>Led 3 weeks of on-site deployment in Indonesia for the first overseas customer, which became a lighthouse account.</li>
+          <li>Owned the integration APIs and shared Postman documentation with API-first vendors.</li>
+          <li>Architected an AI clean-up pipeline (LangGraph, Claude via Bedrock) for 30+ clinics, cutting submissions from about 1 hour to 6-10 minutes with human review.</li>
+          <li>Hired and led 2-3 solutions engineers as hiring manager, and trained them on the platform.</li>
         </ul>
       </div>
     </div>
@@ -233,7 +235,37 @@
   </div>
 </section>
 
-<section id="skills" class="alt">
+<section id="writing" class="alt">
+  <div class="wrap">
+    <h2>Writing</h2>
+    <div class="job">
+      <div class="when">Mesh Bio<br>Singapore</div>
+      <div>
+        <h3>From a week to a day: a lab and radiology pipeline for many clinics</h3>
+        <div class="org">One Lambda per clinic became a configurable pipeline. Batch turnaround went from about a week to a day.</div>
+        <p><a href="writing/pipeline.html">Read</a></p>
+      </div>
+    </div>
+    <div class="job">
+      <div class="when">Mesh Bio<br>Indonesia</div>
+      <div>
+        <h3>From one customer's deadline to an API-first platform</h3>
+        <div class="org">A headless workflow for the first overseas customer became the way other customers and partners connected.</div>
+        <p><a href="writing/apis.html">Read</a></p>
+      </div>
+    </div>
+    <div class="job">
+      <div class="when">Mesh Bio<br>2025</div>
+      <div>
+        <h3>Lessons from using an LLM to clean up messy clinic data</h3>
+        <div class="org">LangGraph, Claude on Bedrock, Pydantic and ChromaDB took submission clean-up from about an hour to 6-10 minutes.</div>
+        <p><a href="writing/llm-lessons.html">Read</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
   <div class="wrap">
     <h2>Skills</h2>
     <ul class="pills">

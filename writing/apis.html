@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<title>From one customer&#x27;s deadline to an API-first platform | Ahmed Alvee</title>
+<meta name="description" content="Mesh Bio&#x27;s first overseas customer, in Indonesia, became our lighthouse account. The APIs I built for that deployment became how customers in Singapore and Indonesia connected to Mesh Bio, and the primary way our distribution partner connected future clients.">
+<meta name="author" content="Ahmed Alvee">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://alvee1994.github.io/portfolio/writing/apis.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="From one customer&#x27;s deadline to an API-first platform">
+<meta property="og:description" content="Mesh Bio&#x27;s first overseas customer, in Indonesia, became our lighthouse account. The APIs I built for that deployment became how customers in Singapore and Indonesia connected to Mesh Bio, and the primary way our distribution partner connected future clients.">
+<meta property="og:url" content="https://alvee1994.github.io/portfolio/writing/apis.html">
+<meta property="og:image" content="https://alvee1994.github.io/portfolio/assets/ahmed-alvee.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bar"><div class="wrap"><b><i>A</i><a href="../">Ahmed Alvee</a></b><a href="../#work">Experience</a><a href="../#writing">Writing</a><a href="../#contact">Contact</a></div></div>
+<main class="wrap article">
+<p class="crumb"><a href="../#writing">Writing</a></p>
+<h1>From one customer&#x27;s deadline to an API-first platform</h1>
+<p class="result"><strong>Result:</strong> Mesh Bio's first overseas customer, in Indonesia, became our lighthouse account. The APIs I built for that deployment became how customers in Singapore and Indonesia connected to Mesh Bio, and the primary way our distribution partner connected future clients.</p>
+<h2>Situation</h2>
+<p>Mesh Bio is a Singapore health-tech company working with private healthcare providers. Its most widely adopted product was a health screening workflow that used predictive analytics to score each patient's risk and recommendation logic to build the screening reports.</p>
+<p>Our first overseas customer, in Indonesia, needed to use Mesh Bio without changing how they used their own electronic medical record (EMR) system. We also had a deadline. I was customer-facing, so I took part in the technical sales calls. On those calls I learned the other side's tech stack, found the integration points and worked with their stakeholders.</p>
+<h2>Task</h2>
+<p>I had to design a workflow that worked inside their EMR habits and could be delivered by the deadline. That meant settling the scope early and getting the Singapore developers and the customer to agree on it.</p>
+<h2>Action</h2>
+<p><strong>Design the workflow.</strong> I met with the team and we looked at the state of each side's application. I then recommended a headless, API-based workflow, so the customer's staff did not have to learn a new screen.</p>
+<p><strong>Set scope and resources.</strong> We cut the deliverables to a clear list, set the scope of what we would build and assigned the people to build it.</p>
+<p><strong>Be the link.</strong> I led 3 weeks of on-the-ground deployment in Indonesia and stayed the link between the customer and our developers in Singapore for months after.</p>
+<p><strong>Build ahead of demand.</strong> I owned the integration APIs. The first APIs served the customer in Indonesia. After that I anticipated what the next vendor would need and built it first. When a new vendor arrived, the work was often just sharing our Postman documentation. Lab, radiology and CMS vendors who preferred an API-first approach could connect without us building an interface for each one.</p>
+<p><strong>Build a team.</strong> I was promoted to Solutions Architect and became the hiring manager for a team of 2-3 solutions engineers. From 2024 to mid 2025 I ran the hiring process and vetted candidates for both local and remote hires. I handed my work to them, trained them on what we had, what we would build and how to build it, and supervised the expansion and the development of new APIs and pipelines.</p>
+<p>Later, an engineer and I built a configurable validation layer on top of this work. It builds Pydantic validation objects on the fly and transforms incoming data, the same idea as the lab and radiology pipelines. It was live for the APIs and for the lab and radiology work. The third write-up covers how the AI clean-up used it.</p>
+<h2>Result</h2>
+<p>The first overseas customer became a lighthouse account and opened follow-on regional projects. The APIs were available in every market and actively used in Singapore and Indonesia. They also became the primary way our distribution partner connected future clients, so new integrations did not need a custom interface each time.</p>
+<nav class="more" aria-label="More writing">
+<span>More from Mesh Bio</span>
+<a href="pipeline.html">From a week to a day: a lab and radiology pipeline for many clinics</a>
+<a href="llm-lessons.html">Lessons from using an LLM to clean up messy clinic data</a>
+</nav>
+</main>
+<footer id="contact"><div class="wrap"><p><a href="mailto:ahmedalv94@gmail.com">ahmedalv94@gmail.com</a><br><a href="https://linkedin.com/in/alveeahmed">linkedin.com/in/alveeahmed</a><br><a href="https://github.com/alvee1994">github.com/alvee1994</a></p></div></footer>
+</body>
+</html>
