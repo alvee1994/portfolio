@@ -24,6 +24,7 @@ jobs:
           mkdir _site
           cp index.html app.js config.js ribbon.js llms.txt sitemap.xml .nojekyll _site/
           if [ -d assets ]; then cp -r assets _site/; fi
+          if [ -d writing ]; then cp -r writing _site/; fi
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
