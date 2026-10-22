@@ -1,6 +1,6 @@
 # Ahmed Alvee
 
-> Solutions architect building AI and automation that clinics and teams actually use. MBA candidate at Rotterdam School of Management (2026 to 2027). AWS Certified Solutions Architect, Associate. Open to forward-deployed, solutions and AI consulting roles.
+> Solutions architect who built AWS data pipelines and LLM workflows for clinics, and took them live with customers on site. MBA candidate at Rotterdam School of Management (2026 to 2027). AWS Certified Solutions Architect, Associate. Open to forward-deployed, solutions and AI consulting roles.
 
 This page has an AI agent ("Ask my agent") that answers questions about Ahmed's work from his CV and notes.
 
@@ -11,7 +11,7 @@ This page has an AI agent ("Ask my agent") that answers questions about Ahmed's 
 
 ## Experience
 
-- Solutions Architect, Mesh Bio, Singapore (05/2022 to 12/2025, previously Senior Solutions Engineer). Built the lab and radiology data pipeline on AWS (Lambda, SNS, SQS, Step Functions, HL7), which cut the time to onboard a new lab and clinic combination from about a week to a day. Architected an AI clean-up pipeline for 30+ clinics, with human review. Owned the integration APIs and led on-site deployment for the first overseas customer. Hired and led 2 to 3 solutions engineers.
+- Solutions Architect, Mesh Bio, Singapore (05/2022 to 12/2025). Built the lab and radiology data pipeline on AWS (Lambda, SNS, SQS, Step Functions, HL7), which cut the time to onboard a new lab and clinic combination from about a week to a day. Architected an AI clean-up pipeline for 30+ clinics, with human review. Owned the integration APIs and led on-site deployment for the first overseas customer. Built the MLLP endpoint that receives HL7 from lab vendors and writes files to S3. Hired, trained and supervised 2 to 3 solutions engineers.
 - AI Strategy Consultant, RSM Living Management Project, client Truvalu, Rotterdam (06/2026 to 07/2026). Designed a 5-stage AI monitoring workflow for an impact investor, projected to cut monitoring time by about 45%.
 - Software Engineer, Creative Medtech Solutions, Singapore (09/2021 to 04/2022). Imaging annotation and interaction layer for a HIFU cancer-ablation robot, including DICOM export.
 - Research Assistant, Singapore University of Technology and Design (02/2018 to 08/2021). Locomotion code for a 12+ robot mapping system. ML pipeline recognizing 7 hand gestures.
@@ -29,7 +29,10 @@ This page has an AI agent ("Ask my agent") that answers questions about Ahmed's 
 
 ## Skills
 
-AWS, Amazon Bedrock, LangGraph, LangChain, Claude Code, Python, REST APIs, HL7, DICOM, Terraform, n8n, Microsoft Graph API, Gemini, Pydantic, ChromaDB, MongoDB, C++, Linux
+- Cloud: AWS (Lambda, Step Functions, SQS, SNS, EventBridge), Terraform
+- AI and LLM: Amazon Bedrock, LangGraph, LangChain, Gemini, Pydantic, ChromaDB, n8n, Claude Code, Cursor
+- Integration: REST APIs, Postman, HL7, MLLP, DICOM, Microsoft Graph API
+- Languages and tools: Python, C++, MongoDB, Git, Linux, Qt, ROS
 
 ## Links
 

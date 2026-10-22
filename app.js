@@ -25,6 +25,7 @@ function add(cls, text) {
   d.textContent = text; // untrusted text, never innerHTML
   $('log').append(d);
   d.scrollIntoView({ block: 'end' });
+  return d;
 }
 
 // Three dots while the agent works. Removed when its text arrives or the turn ends.
@@ -123,12 +124,13 @@ $('form').addEventListener('submit', async ev => {
   $('go').disabled = true;
   add('user', text);
   try { await ask(text); }
-  catch (err) { add('note', 'error: ' + err.message); }
+  catch (err) { add('note', UNAVAILABLE); }
   $('go').disabled = false;
   $('msg').focus();
 });
 
 // The run (and its cost) starts only when the visitor opens the chat, once.
+const UNAVAILABLE = 'The agent is unavailable right now. Email ahmedalv94@gmail.com.';
 let opened = false;
 function openChat() {
   $('panel').classList.add('open');
@@ -136,8 +138,10 @@ function openChat() {
   if (opened) return;
   opened = true;
   $('go').disabled = true;
-  start().catch(err => { opened = false; add('note', 'error: ' + err.message); })
-         .finally(() => { $('go').disabled = !session; });
+  const hint = add('note', 'Confirm the check below to start.');
+  $('msg').focus();
+  start().catch(err => { opened = false; hint.remove(); add('note', UNAVAILABLE); })
+         .finally(() => { hint.remove(); $('go').disabled = !session; });
 }
 $('launch').addEventListener('click', openChat);
 
@@ -158,7 +162,16 @@ if (window.BACKENDS.length > 1) {
     openChat();
   });
 }
-$('close').addEventListener('click', () => { $('panel').classList.remove('open'); $('launch').style.display = ''; });
+function closeChat() { $('panel').classList.remove('open'); $('launch').style.display = ''; $('launch').focus(); }
+$('close').addEventListener('click', closeChat);
+document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && $('panel').classList.contains('open')) closeChat(); });
 
 // The hero button opens the same chat as the floating one.
 document.getElementById('ask').addEventListener('click', ev => { ev.preventDefault(); openChat(); });
+
+// Floating button appears once the hero button has scrolled out of view.
+(function () {
+  const hero = document.getElementById('ask'), fab = document.getElementById('launch');
+  if (!('IntersectionObserver' in window)) { fab.hidden = false; return; }
+  new IntersectionObserver(([e]) => { fab.hidden = e.isIntersecting; }).observe(hero);
+})();
