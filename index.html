@@ -198,7 +198,7 @@
           <li>Cut per-submission time from about 1 hour to 6-10 minutes, including human review, for 30+ clinics by building an AI clean-up pipeline from scratch (LangGraph, Claude on Bedrock, Pydantic, ChromaDB) in which a human reviewer checked and submitted every file.</li>
           <li>Cut the time to onboard a new lab and clinic combination from about a week to a day by replacing a hardcoded Lambda per combination with a config-driven AWS pipeline (Lambda, SNS, SQS, EventBridge Pipes, Step Functions, HL7 integration) that handled about 10,000 records an hour and stayed inside Lambda and MongoDB connection limits.</li>
           <li>Built the MLLP endpoint that receives HL7 from lab vendors and writes files to S3, and handled hourly scheduled files plus on-demand submissions for the lab, radiology and clinic pipelines.</li>
-          <li>Kept wrong data out of patient profiles with record count checks and exception handling, and resolved a lab vendor's unannounced system switch in one day.</li>
+          <li>Kept wrong data out of patient profiles with record count checks and exception handling, and resolved a lab vendor's unannounced system switch in one day with a solutions engineer.</li>
           <li>Turned the first overseas customer into a lighthouse account that opened follow-on regional projects by recommending a headless API-based workflow and leading 3 weeks of on-site deployment.</li>
           <li>Owned the integration APIs that became the distribution partner's primary way to integrate new clients; joined technical sales calls to map customer tech stacks and integration points.</li>
           <li>Hired, trained and supervised a team of 2-3 solutions engineers as they took over and expanded the APIs and pipelines.</li>

@@ -12,7 +12,7 @@ This page has an AI agent ("Ask my agent") that answers questions about Ahmed's 
 ## Experience
 
 - Solutions Architect, Mesh Bio, Singapore (05/2022 to 12/2025). Built the lab and radiology data pipeline on AWS (Lambda, SNS, SQS, Step Functions, HL7), which cut the time to onboard a new lab and clinic combination from about a week to a day. Architected an AI clean-up pipeline for 30+ clinics, with human review. Owned the integration APIs and led on-site deployment for the first overseas customer. Built the MLLP endpoint that receives HL7 from lab vendors and writes files to S3. Hired, trained and supervised 2 to 3 solutions engineers.
-- AI Strategy Consultant, RSM Living Management Project, client Truvalu, Rotterdam (06/2026 to 07/2026). Designed a 5-stage AI monitoring workflow for an impact investor, projected to cut monitoring time by about 45%.
+- AI Strategy Consultant, RSM Living Management Project, client Truvalu, Rotterdam (06/2026 to 07/2026). Designed, as part of a 5-person MBA team, a 5-stage AI monitoring workflow for an impact investor, projected to cut monitoring time by about 45%.
 - Software Engineer, Creative Medtech Solutions, Singapore (09/2021 to 04/2022). Imaging annotation and interaction layer for a HIFU cancer-ablation robot, including DICOM export.
 - Research Assistant, Singapore University of Technology and Design (02/2018 to 08/2021). Locomotion code for a 12+ robot mapping system. ML pipeline recognizing 7 hand gestures.
 
