@@ -176,8 +176,7 @@
 
 <section class="stats">
   <div class="wrap"><ul>
-    <li><b>3-5 days to under 1</b><span>Onboarding per clinic, rebuilt on AWS</span></li>
-    <li><b>1 week to 1 day</b><span>Lab and radiology batch turnaround</span></li>
+    <li><b>1 week to 1 day</b><span>Onboarding a new lab and clinic combination</span></li>
     <li><b>1 hour to 6-10 min</b><span>Per submission, with an AI clean-up pipeline</span></li>
   </ul></div>
 </section>
@@ -191,9 +190,8 @@
         <h3>Solutions Architect</h3>
         <div class="org">Mesh Bio (prev. Senior Solutions Engineer)</div>
         <ul>
-          <li>Redesigned lab and radiology file processing into a configurable AWS pipeline (EventBridge Pipes, Step Functions), cutting batch turnaround from about a week to a day.</li>
+          <li>Replaced a hardcoded Lambda per clinic and lab with one configurable AWS pipeline (EventBridge Pipes, Step Functions), cutting the time to onboard a new lab and clinic combination from about a week to a day.</li>
           <li>Kept wrong data out of patient profiles with record count checks and exception handling, and resolved a lab vendor's unannounced system switch in one day.</li>
-          <li>Helped cut clinic onboarding from 3-5 days to under 1 day.</li>
           <li>Led 3 weeks of on-site deployment in Indonesia for the first overseas customer, which became a lighthouse account.</li>
           <li>Owned the integration APIs and shared Postman documentation with API-first vendors.</li>
           <li>Architected an AI clean-up pipeline (LangGraph, Claude via Bedrock) for 30+ clinics, cutting submissions from about 1 hour to 6-10 minutes with human review.</li>
@@ -242,8 +240,8 @@
     <div class="job">
       <div class="when">Mesh Bio<br>Singapore</div>
       <div>
-        <h3>From a week to a day: a lab and radiology pipeline for many clinics</h3>
-        <div class="org">One Lambda per clinic became a configurable pipeline. Batch turnaround went from about a week to a day.</div>
+        <h3>From a week to a day: onboarding a new lab and clinic combination</h3>
+        <div class="org">One hardcoded Lambda per clinic and lab became a configurable pipeline. Onboarding a new combination went from about a week to a day.</div>
         <p><a href="writing/pipeline.html">Read</a></p>
       </div>
     </div>
