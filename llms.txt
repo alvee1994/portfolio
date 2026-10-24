@@ -30,7 +30,7 @@ This page has an AI agent ("Ask my agent") that answers questions about Ahmed's 
 ## Skills
 
 - Cloud: AWS (Lambda, Step Functions, SQS, SNS, EventBridge), Terraform
-- AI and LLM: Amazon Bedrock, LangGraph, LangChain, Gemini, Pydantic, ChromaDB, n8n, Claude Code, Cursor
+- AI and LLM: Model Context Protocol (MCP), Amazon Bedrock, LangGraph, LangChain, Gemini, Pydantic, ChromaDB, n8n, Claude Code, Cursor
 - Integration: REST APIs, Postman, HL7, MLLP, DICOM, Microsoft Graph API
 - Languages and tools: Python, C++, MongoDB, Git, Linux, Qt, ROS
 
