@@ -83,9 +83,9 @@
   @media (max-width:48rem) { #ribbon { display:none; } }
   @media (max-width:40rem) {
     body { overflow-x:hidden; }
-    .bar .wrap { gap:1rem; height:3.75rem; font-size:.8125rem; }
+    .bar .wrap { gap:.75rem; height:3.75rem; font-size:.8125rem; }
     .bar b { font-size:.9375rem; white-space:nowrap; }
-    .bar a[href="#skills"] { display:none; }
+    .bar a[href="#skills"], .bar a[href="#writing"] { display:none; }
     .hero nav { gap:1rem 1.25rem; }
     body .stats ul { border-left:0; }
     body .stats li { border-right:0; border-top:1px solid var(--line); padding:1.25rem 0; }
@@ -160,7 +160,7 @@
 <body>
 <a href="#work" class="skip">Skip to content</a>
 <!-- CHANGE: everything between here and the chat widget is your page. Keep the ids "ask", "launch" and "panel". -->
-<div class="bar"><div class="wrap"><b><i>A</i>Ahmed Alvee</b><a href="#work">Experience</a><a href="#writing">Writing</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></div>
+<div class="bar"><div class="wrap"><b><i>A</i>Ahmed Alvee</b><a href="#work">Experience</a><a href="#projects">Projects</a><a href="#writing">Writing</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></div>
 
 <header class="hero">
   <canvas id="ribbon" aria-hidden="true"></canvas>
@@ -246,7 +246,29 @@
   </div>
 </section>
 
-<section id="writing" class="alt">
+<section id="projects" class="alt">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <div class="job">
+      <div class="when">02/2026 - now<br>Own product</div>
+      <div>
+        <h3>LazySplit</h3>
+        <div class="org">A bill-splitting web app I designed, built and run, live with real users and paid plans. Scan a receipt, share one link, and everyone claims what they had.</div>
+        <ul>
+          <li>Built receipt scanning as a vision LLM pipeline (Gemini 3.8 Flash through OpenRouter, with Qwen3-VL as the fallback when the first call fails or times out): a strict JSON schema, and an arithmetic check that decides whether each tax or service line is already in the prices or added on top. Every scanned item stays editable before the bill is shared.</li>
+          <li>Friends join from a link without an account and claim items live, with shared items, tax, service and tip split proportionally (Supabase anonymous auth and Realtime).</li>
+          <li>Put the business rules in the database so they hold under concurrent writes: row-level security, triggers for totals and plan limits, one function that every policy and edge function calls to resolve the plan, server-side scan quotas and rate limits, and adversarial SQL tests for the security-sensitive paths.</li>
+          <li>Rebuilt the first v0 prototype from a written spec (PRD, data model, lessons from the first version) in 14 phases with Claude Code as the coding agent, then shipped Stripe subscriptions, Sentry and analytics.</li>
+          <li>Cut page latency by moving server functions to Stockholm, next to the database, and removing database round trips on the busiest pages.</li>
+          <li>Stack: Next.js, React, Supabase (Postgres, Auth, Realtime, Storage, Edge Functions), Stripe, Vercel.</li>
+        </ul>
+        <p><a href="https://lazysplit.online/" rel="noopener" target="_blank">Visit lazysplit.online</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
   <div class="wrap">
     <h2>Writing</h2>
     <div class="job">

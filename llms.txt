@@ -16,6 +16,10 @@ This page has an AI agent ("Ask my agent") that answers questions about Ahmed's 
 - Software Engineer, Creative Medtech Solutions, Singapore (09/2021 to 04/2022). Imaging annotation and interaction layer for a HIFU cancer-ablation robot, including DICOM export.
 - Research Assistant, Singapore University of Technology and Design (02/2018 to 08/2021). Locomotion code for a 12+ robot mapping system. ML pipeline recognizing 7 hand gestures.
 
+## Projects
+
+- LazySplit, own product (02/2026 to now), https://lazysplit.online/. A bill-splitting web app Ahmed designed, built and runs, live with real users and paid plans: scan a receipt, share one link, and everyone claims what they had. Receipt scanning is a vision LLM pipeline (Gemini 3.8 Flash through OpenRouter, Qwen3-VL fallback) with a strict JSON schema and an arithmetic check for tax and service lines; every item stays editable before sharing. Friends join without an account and claim live. Business rules live in the database (row-level security, triggers, server-side quotas and rate limits) with adversarial SQL tests. Rebuilt from a written spec in 14 phases with Claude Code. Stack: Next.js, React, Supabase, Stripe, Vercel.
+
 ## Writing
 
 - [From 3-5 days to under a day: onboarding a new lab and clinic combination](https://alvee1994.github.io/portfolio/writing/pipeline.html)
