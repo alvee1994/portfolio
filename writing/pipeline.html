@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'">
-<title>From a week to a day: onboarding a new lab and clinic combination | Ahmed Alvee</title>
-<meta name="description" content="I cut the time to onboard a new lab and clinic combination at Mesh Bio from about a week to a day by rebuilding the pipeline that brings clinic files into the platform. A new combination became a configuration job.">
+<title>From 3-5 days to under a day: onboarding a new lab and clinic combination | Ahmed Alvee</title>
+<meta name="description" content="I improved the time to onboard a new lab and clinic combination at Mesh Bio from 3-5 days to under a day by rebuilding the pipeline that brings clinic files into the platform. A new combination became a configuration job.">
 <meta name="author" content="Ahmed Alvee">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://alvee1994.github.io/portfolio/writing/pipeline.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="From a week to a day: onboarding a new lab and clinic combination">
-<meta property="og:description" content="I cut the time to onboard a new lab and clinic combination at Mesh Bio from about a week to a day by rebuilding the pipeline that brings clinic files into the platform. A new combination became a configuration job.">
+<meta property="og:title" content="From 3-5 days to under a day: onboarding a new lab and clinic combination">
+<meta property="og:description" content="I improved the time to onboard a new lab and clinic combination at Mesh Bio from 3-5 days to under a day by rebuilding the pipeline that brings clinic files into the platform. A new combination became a configuration job.">
 <meta property="og:url" content="https://alvee1994.github.io/portfolio/writing/pipeline.html">
 <meta property="og:image" content="https://alvee1994.github.io/portfolio/assets/ahmed-alvee.jpg">
 <meta name="twitter:card" content="summary">
@@ -22,12 +22,12 @@
 <div class="bar"><div class="wrap"><b><i>A</i><a href="../">Ahmed Alvee</a></b><a href="../#work">Experience</a><a href="../#writing">Writing</a><a href="../#contact">Contact</a></div></div>
 <main class="wrap article">
 <p class="crumb"><a href="../#writing">Writing</a></p>
-<h1>From a week to a day: onboarding a new lab and clinic combination</h1>
-<p class="result">I cut the time to onboard a new lab and clinic combination at Mesh Bio from about a week to a day by rebuilding the pipeline that brings clinic files into the platform. A new combination became a configuration job.</p>
+<h1>From 3-5 days to under a day: onboarding a new lab and clinic combination</h1>
+<p class="result">I improved the time to onboard a new lab and clinic combination at Mesh Bio from 3-5 days to under a day by rebuilding the pipeline that brings clinic files into the platform. A new combination became a configuration job.</p>
 <h2>Where we started</h2>
 <p>Mesh Bio is a Singapore health-tech company working with private healthcare providers. Its most widely adopted product was a health screening workflow that used predictive analytics to score each patient's risk and recommendation logic to build the screening reports. I facilitated that by building the pipelines that fed it.</p>
 <p>Clinics and labs sent us lab and radiology files as HL7 and CSV. Inside those formats, every clinic or lab used its own coding system, naming conventions and units. The pipeline ran in every market we served.</p>
-<p>The first version was hardcoded: an S3 bucket fed a Lambda function that transformed the file and wrote to the database, with a separate Lambda for every clinic and lab combination. That meant duplicate code, many Lambdas to deploy, and code rewrites for small changes. Onboarding a new lab and clinic combination meant copying that code and testing the incoming data against the custom version, which took about a week. Scheduled files arrived at the start of every hour, about 10,000 records an hour in Singapore alone, and clinics could also submit on demand. Those on-demand files had to be processed as fast as possible.</p>
+<p>The first version was hardcoded: an S3 bucket fed a Lambda function that transformed the file and wrote to the database, with a separate Lambda for every clinic and lab combination. That meant duplicate code, many Lambdas to deploy, and code rewrites for small changes. Onboarding a new lab and clinic combination meant copying that code and testing the incoming data against the custom version, which took 3-5 days. Scheduled files arrived at the start of every hour, about 10,000 records an hour in Singapore alone, and clinics could also submit on demand. Those on-demand files had to be processed as fast as possible.</p>
 <h2>What it had to do</h2>
 <p>I had to make the pipeline handle many clinics without a code change for each one. It had to work fast on the hourly burst and on demand. It also had to run inside two limits: the Lambda concurrency limit of our AWS account, which other applications' Lambdas shared, and the MongoDB connection pool limit. Above all, the pipeline had to block any record it could not match to the right patient.</p>
 <h2>The redesign</h2>
@@ -48,8 +48,8 @@ After:   S3 -&gt; EventBridge Pipes (SQS + Lambda)
 <p>Once, a vendor moved to a different system without telling us. Data surged and the file pattern changed. The pipeline was already configurable, and the exception handling stopped the script and kept wrong data out. My solutions engineer and I handled it in a single day, and no wrong data reached a patient profile.</p>
 <p>Parsing 10,000 or more records could take 5 to 7 minutes. Clinics did not need to know when a file arrived. They opened the patient profile and the data was there.</p>
 <h2>What changed</h2>
-<p>Onboarding a new lab and clinic combination went from about a week to a day. The differences lived in configuration, so there was no code to copy and no custom version to test against.</p>
-<p>I was promoted to Solutions Architect, hired a team of 2-3 solutions engineers between 2024 and mid 2025, and trained and supervised them. I handed this work to them and supervised its expansion and the development of new pipelines and APIs on top of it.</p>
+<p>Onboarding a new lab and clinic combination improved from 3-5 days to under a day. The differences lived in configuration, so there was no code to copy and no custom version to test against.</p>
+<p>I was promoted to Solutions Architect, hired a team of 3 solutions engineers between 2024 and mid 2025, and coached, trained and supervised them. I handed this work to them and supervised its expansion and the development of new pipelines and APIs on top of it.</p>
 <nav class="more" aria-label="More writing">
 <span>More from Mesh Bio</span>
 <a href="apis.html">From one customer's deadline to an API-first platform</a>

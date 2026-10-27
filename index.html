@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src https://*.workers.dev; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'">
 <title>Ahmed Alvee | Solutions Architect, AI and Automation</title>
-<meta name="description" content="Ahmed Alvee is a solutions architect who builds AI and automation for healthcare and business teams: AWS data pipelines, LangGraph and Claude agents. MBA at Rotterdam School of Management. Ask his AI agent about his work.">
+<meta name="description" content="Ahmed Alvee is a solutions architect who built AI and automation and took it live with customers: LLM pipelines with guardrails, AI agents, AWS data pipelines and integration APIs. MBA at Rotterdam School of Management. Ask his AI agent about his work.">
 <meta name="author" content="Ahmed Alvee">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://alvee1994.github.io/portfolio/">
 <link rel="alternate" type="text/markdown" title="LLM summary" href="https://alvee1994.github.io/portfolio/llms.txt">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Ahmed Alvee | Solutions Architect, AI and Automation">
-<meta property="og:description" content="Solutions architect building AI and automation that clinics and teams actually use. MBA at RSM. Ask my AI agent about my work.">
+<meta property="og:description" content="Solutions architect who built AI and automation and took it live with customers on site. MBA at RSM. Ask my AI agent about my work.">
 <meta property="og:url" content="https://alvee1994.github.io/portfolio/">
 <meta property="og:image" content="https://alvee1994.github.io/portfolio/assets/ahmed-alvee.jpg">
 <meta property="og:image:alt" content="Portrait of Ahmed Alvee">
@@ -24,12 +24,12 @@
   "@context": "https://schema.org",
   "@type": "ProfilePage",
   "url": "https://alvee1994.github.io/portfolio/",
-  "dateModified": "2026-10-22",
+  "dateModified": "2026-10-27",
   "mainEntity": {
     "@type": "Person",
     "name": "Ahmed Alvee",
     "jobTitle": "Solutions Architect",
-    "description": "Solutions architect who built AWS data pipelines and LLM workflows for clinics, and took them live with customers on site. Three years and seven months at Mesh Bio in Singapore. MBA candidate at Rotterdam School of Management.",
+    "description": "Solutions architect who built LLM pipelines with guardrails, AI agents and AWS data pipelines, and took them live with customers on site. Three years and seven months at Mesh Bio in Singapore. MBA candidate at Rotterdam School of Management.",
     "url": "https://alvee1994.github.io/portfolio/",
     "image": "https://alvee1994.github.io/portfolio/assets/ahmed-alvee.jpg",
     "email": "mailto:ahmedalv94@gmail.com",
@@ -38,7 +38,7 @@
       {"@type": "CollegeOrUniversity", "name": "Singapore University of Technology and Design"}
     ],
     "hasCredential": {"@type": "EducationalOccupationalCredential", "name": "AWS Certified Solutions Architect, Associate", "recognizedBy": {"@type": "Organization", "name": "Amazon Web Services"}},
-    "knowsAbout": ["AWS", "Model Context Protocol", "Amazon Bedrock", "LangGraph", "LangChain", "Claude", "Python", "HL7", "DICOM", "Terraform", "n8n", "AI agents", "Workflow automation", "Healthcare data pipelines"]
+    "knowsAbout": ["Generative AI", "AI agents", "RAG", "Guardrails", "Model evaluation", "Responsible AI", "AI discovery", "Proofs of concept", "Model Context Protocol", "Amazon Bedrock", "LangGraph", "LangChain", "Claude", "AWS", "Docker", "Terraform", "Python", "REST APIs", "HL7", "DICOM", "n8n", "Workflow automation", "Data pipelines"]
   }
 }
 </script>
@@ -167,7 +167,7 @@
   <div class="wrap">
     <span class="tag">MBA at Rotterdam School of Management</span>
     <h1>Solutions Architect, AI and Automation</h1>
-    <p>Built AWS data pipelines and LLM workflows for clinics, and took them live with customers on site. Open to forward-deployed, solutions and AI consulting roles.</p>
+    <p>Built LLM pipelines with guardrails, AI agents and AWS data pipelines, and took them live with customers on site. Open to forward-deployed, solutions and AI consulting roles.</p>
     <nav>
       <a class="btn" href="#ask" id="ask">Ask my agent</a>
       <a class="link" href="#work">Experience</a>
@@ -180,7 +180,7 @@
 <main>
 <section class="stats">
   <div class="wrap"><ul>
-    <li><b>1 week to 1 day</b><span>Onboarding a new lab and clinic combination</span></li>
+    <li><b>3-5 days to under 1 day</b><span>Onboarding a new lab and clinic combination</span></li>
     <li><b>1 hour to 6-10 min</b><span>Per submission, with an AI clean-up pipeline</span></li>
   </ul></div>
 </section>
@@ -195,13 +195,15 @@
         <div class="org">Mesh Bio</div>
         <div class="org">Singapore health-tech company serving private healthcare providers. Its health screening workflow scored patient risk and built screening reports.</div>
         <ul>
-          <li>Cut per-submission time from about 1 hour to 6-10 minutes, including human review, for 30+ clinics by building an AI clean-up pipeline from scratch (LangGraph, Claude on Bedrock, Pydantic, ChromaDB) in which a human reviewer checked and submitted every file.</li>
-          <li>Cut the time to onboard a new lab and clinic combination from about a week to a day by replacing a hardcoded Lambda per combination with a config-driven AWS pipeline (Lambda, SNS, SQS, EventBridge Pipes, Step Functions, HL7 integration) that handled about 10,000 records an hour and stayed inside Lambda and MongoDB connection limits.</li>
-          <li>Built the MLLP endpoint that receives HL7 from lab vendors and writes files to S3, and handled hourly scheduled files plus on-demand submissions for the lab, radiology and clinic pipelines.</li>
-          <li>Kept wrong data out of patient profiles with record count checks and exception handling, and resolved a lab vendor's unannounced system switch in one day with a solutions engineer.</li>
-          <li>Turned the first overseas customer into a lighthouse account that opened follow-on regional projects by recommending a headless API-based workflow and leading 3 weeks of on-site deployment.</li>
-          <li>Owned the integration APIs that became the distribution partner's primary way to integrate new clients; joined technical sales calls to map customer tech stacks and integration points.</li>
-          <li>Hired, trained and supervised a team of 2-3 solutions engineers as they took over and expanded the APIs and pipelines.</li>
+          <li>Per-submission time improved from about 1 hour to 6-10 minutes, including human review, for 30+ clinics, by choosing LLMs to turn messy input into schema-aligned output and building the pipeline from scratch (LangGraph, Claude on Bedrock, Pydantic, ChromaDB); a human reviewer checked every file.</li>
+          <li>Developed guardrails for the AI pipeline: system prompting, a LangGraph supervisor agent framework and a configurable Pydantic validation layer, with strict submission criteria as a responsible AI control.</li>
+          <li>Turned the first overseas customer into a lighthouse account that opened follow-on regional projects, by recommending a headless API-based workflow, cutting scope to meet the deadline, and leading 3 weeks of on-the-ground deployment.</li>
+          <li>Built prototypes, proofs of concept and MVPs, ran pilots with teams in Indonesia before wide deployment, and extended the pipeline to run on premises as an MVP for a pilot with an Indonesian client.</li>
+          <li>Chose a vision language model (VLM) for a medical identification pilot with a major healthcare provider, and deployed, tested and evaluated frontier and open-weight models (OpenRouter, vLLM, Hugging Face, Amazon Bedrock).</li>
+          <li>Onboarding time improved from 3-5 days to under 1 day for each new lab and clinic combination, by redesigning a hardcoded Lambda per combination into a config-driven AWS pipeline (Lambda, SNS, SQS, EventBridge Pipes, Step Functions, HL7 integration) that handled about 10,000 records an hour.</li>
+          <li>Defined non-functional requirements with technical and non-technical teams, drew workflow and data-flow diagrams, and designed the API for embedding Mesh Bio's platform in a CMS used by a third of Singapore's private healthcare providers.</li>
+          <li>Joined technical sales calls to map customer tech stacks and integration points, and owned the integration APIs, built ahead of demand with Postman documentation.</li>
+          <li>Promoted to Solutions Architect; hired, coached, trained and supervised a team of 3 solutions engineers as they took over and expanded the APIs and pipelines.</li>
         </ul>
       </div>
     </div>
@@ -212,8 +214,8 @@
         <div class="org">MBA Consulting Project, RSM Living Management, client Truvalu</div>
         <div class="org">MBA consulting project for Truvalu, a Netherlands-based impact investor supporting agri-food SMEs in emerging markets.</div>
         <ul>
-          <li>Projected about a 45% cut in monitoring time for an impact investor with a 5-stage AI monitoring workflow, designed as part of a 5-person MBA team.</li>
-          <li>Engineered and demoed AI tools and agents (Gemini, Claude, Tally.so) spanning all 5 workflow stages, from data clean-up to reporting.</li>
+          <li>Defined the problem with the client (AI discovery), then designed a 5-stage AI monitoring workflow with a 5-person MBA team, projected to improve monitoring time for an impact investor by about 45%.</li>
+          <li>Engineered and demoed AI tools and agents (Gemini, Claude, Tally.so) as proofs of concept and an MVP spanning all 5 workflow stages, from data clean-up to reporting.</li>
           <li>Co-led the final client presentation to Truvalu leadership.</li>
         </ul>
       </div>
@@ -250,8 +252,8 @@
     <div class="job">
       <div class="when">Mesh Bio</div>
       <div>
-        <h3>From a week to a day: onboarding a new lab and clinic combination</h3>
-        <div class="org">One hardcoded Lambda per clinic and lab became a configurable pipeline. Onboarding a new combination went from about a week to a day.</div>
+        <h3>From 3-5 days to under a day: onboarding a new lab and clinic combination</h3>
+        <div class="org">One hardcoded Lambda per clinic and lab became a configurable pipeline. Onboarding a new combination went from 3-5 days to under a day.</div>
         <p><a href="writing/pipeline.html">Read</a></p>
       </div>
     </div>
@@ -278,13 +280,15 @@
   <div class="wrap">
     <h2>Skills</h2>
     <h3 class="sk">Cloud</h3>
-    <ul class="pills"><li>AWS (Lambda, Step Functions, SQS, SNS, EventBridge)</li><li>Terraform</li></ul>
+    <ul class="pills"><li>AWS (Lambda, Step Functions, SQS, SNS, EventBridge)</li><li>Terraform</li><li>Docker</li></ul>
     <h3 class="sk">AI and LLM</h3>
-    <ul class="pills"><li>Model Context Protocol (MCP)</li><li>Amazon Bedrock</li><li>LangGraph</li><li>LangChain</li><li>Gemini</li><li>Pydantic</li><li>ChromaDB</li><li>n8n</li><li>Claude Code</li><li>Cursor</li></ul>
+    <ul class="pills"><li>Generative AI (LLMs, VLMs)</li><li>AI agents</li><li>RAG and vector search</li><li>Model Context Protocol (MCP)</li><li>Amazon Bedrock</li><li>LangGraph</li><li>LangChain</li><li>Claude</li><li>Gemini</li><li>OpenRouter</li><li>vLLM</li><li>Hugging Face</li><li>Pydantic</li><li>ChromaDB</li><li>Guardrails</li><li>Model evaluation</li><li>n8n</li><li>Claude Code</li><li>Cursor</li></ul>
     <h3 class="sk">Integration</h3>
-    <ul class="pills"><li>REST APIs</li><li>Postman</li><li>HL7</li><li>MLLP</li><li>DICOM</li><li>Microsoft Graph API</li></ul>
+    <ul class="pills"><li>REST APIs</li><li>Webhooks</li><li>OAuth</li><li>Postman</li><li>HL7</li><li>MLLP</li><li>DICOM</li><li>Microsoft Graph API</li></ul>
     <h3 class="sk">Languages and tools</h3>
     <ul class="pills"><li>Python</li><li>C++</li><li>MongoDB</li><li>Git</li><li>Linux</li><li>Qt</li><li>ROS</li></ul>
+    <h3 class="sk">Ways of working</h3>
+    <ul class="pills"><li>AI discovery</li><li>Responsible AI</li><li>Cross-functional teams</li><li>Stakeholder management</li><li>Agile and Scrum</li></ul>
   </div>
 </section>
 

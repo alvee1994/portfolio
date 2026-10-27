@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'">
 <title>Lessons from using an LLM to clean up messy clinic data | Ahmed Alvee</title>
-<meta name="description" content="I built an AI clean-up pipeline with LangGraph, Claude on Amazon Bedrock, Pydantic and ChromaDB. It cut per-submission time from about 1 hour to 6-10 minutes, including human review, for 30+ clinics.">
+<meta name="description" content="I built an AI clean-up pipeline with LangGraph, Claude on Amazon Bedrock, Pydantic and ChromaDB. Per-submission time improved from about 1 hour to 6-10 minutes, including human review, for 30+ clinics.">
 <meta name="author" content="Ahmed Alvee">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://alvee1994.github.io/portfolio/writing/llm-lessons.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lessons from using an LLM to clean up messy clinic data">
-<meta property="og:description" content="I built an AI clean-up pipeline with LangGraph, Claude on Amazon Bedrock, Pydantic and ChromaDB. It cut per-submission time from about 1 hour to 6-10 minutes, including human review, for 30+ clinics.">
+<meta property="og:description" content="I built an AI clean-up pipeline with LangGraph, Claude on Amazon Bedrock, Pydantic and ChromaDB. Per-submission time improved from about 1 hour to 6-10 minutes, including human review, for 30+ clinics.">
 <meta property="og:url" content="https://alvee1994.github.io/portfolio/writing/llm-lessons.html">
 <meta property="og:image" content="https://alvee1994.github.io/portfolio/assets/ahmed-alvee.jpg">
 <meta name="twitter:card" content="summary">
@@ -24,7 +24,7 @@
 <p class="crumb"><a href="../#writing">Writing</a></p>
 <h1>Lessons from using an LLM to clean up messy clinic data</h1>
 <p><em>Written from work I did in 2025, using Claude through Amazon Bedrock.</em></p>
-<p class="result">I built an AI clean-up pipeline with LangGraph, Claude on Amazon Bedrock, Pydantic and ChromaDB. It cut per-submission time from about 1 hour to 6-10 minutes, including human review, for 30+ clinics.</p>
+<p class="result">I built an AI clean-up pipeline with LangGraph, Claude on Amazon Bedrock, Pydantic and ChromaDB. Per-submission time improved from about 1 hour to 6-10 minutes, including human review, for 30+ clinics.</p>
 <h2>The problem</h2>
 <p>Mesh Bio is a Singapore health-tech company working with private healthcare providers. Clinics sent patient submissions for its health screening workflow as CSV and Excel files. Every vendor used its own column names, and each customer had its own list of health screening package names. A person cleaned each submission by hand, which took about an hour.</p>
 <p>I had to get an LLM to turn those files into clean, structured output a reviewer could trust. The model had to follow instructions closely, stay within cost, and fit the work inside the context window of the models available at the time.</p>
@@ -48,7 +48,7 @@
 <p>Per-submission time went from about 1 hour to 6-10 minutes, including human review, for 30+ clinics. A reviewer checked every output.</p>
 <nav class="more" aria-label="More writing">
 <span>More from Mesh Bio</span>
-<a href="pipeline.html">From a week to a day: onboarding a new lab and clinic combination</a>
+<a href="pipeline.html">From 3-5 days to under a day: onboarding a new lab and clinic combination</a>
 <a href="apis.html">From one customer's deadline to an API-first platform</a>
 </nav>
 </main>
