@@ -122,6 +122,8 @@
 
   .job a { font:500 .8125rem var(--mono); letter-spacing:.1em; text-transform:uppercase; text-decoration:underline; text-underline-offset:4px; }
   .job a:hover { color:var(--accent); }
+  .job .shot { display:block; margin-top:1.25rem; border:1px solid var(--ink); box-shadow:6px 6px 0 var(--accent); }
+  .job .shot img { display:block; width:100%; height:auto; }
 
   /* chat */
   #launch { position:fixed; right:1.25rem; bottom:1.25rem; z-index:5; box-shadow:0 10px 30px rgba(0,0,0,.18); }
@@ -253,15 +255,8 @@
       <div class="when">02/2026 - now<br>Own product</div>
       <div>
         <h3>LazySplit</h3>
-        <div class="org">A bill-splitting web app I designed, built and run, live with real users and paid plans. Scan a receipt, share one link, and everyone claims what they had.</div>
-        <ul>
-          <li>Built receipt scanning as a vision LLM pipeline (Gemini 3.8 Flash through OpenRouter, with Qwen3-VL as the fallback when the first call fails or times out): a strict JSON schema, and an arithmetic check that decides whether each tax or service line is already in the prices or added on top. Every scanned item stays editable before the bill is shared.</li>
-          <li>Friends join from a link without an account and claim items live, with shared items, tax, service and tip split proportionally (Supabase anonymous auth and Realtime).</li>
-          <li>Put the business rules in the database so they hold under concurrent writes: row-level security, triggers for totals and plan limits, one function that every policy and edge function calls to resolve the plan, server-side scan quotas and rate limits, and adversarial SQL tests for the security-sensitive paths.</li>
-          <li>Rebuilt the first v0 prototype from a written spec (PRD, data model, lessons from the first version) in 14 phases with Claude Code as the coding agent, then shipped Stripe subscriptions, Sentry and analytics.</li>
-          <li>Cut page latency by moving server functions to Stockholm, next to the database, and removing database round trips on the busiest pages.</li>
-          <li>Stack: Next.js, React, Supabase (Postgres, Auth, Realtime, Storage, Edge Functions), Stripe, Vercel.</li>
-        </ul>
+        <p>I got tired of paying for a group, then chasing everyone a few days later, especially when the total wasn't an even split, so I made a spreadsheet where we could claim items. That spreadsheet turned into LazySplit, which I built with Claude Code and Pi. You scan a receipt or type it in, share a link, and everyone claims what they had. Joining doesn't need an account or download, and I can assign items for anyone who won't open the link.</p>
+        <a class="shot" href="https://lazysplit.online/" rel="noopener" target="_blank"><img src="assets/lazysplit.jpg" width="1920" height="1200" loading="lazy" alt="LazySplit landing page: Split bills the lazy way, with a Start a bill button and a demo bill where friends claim items"></a>
         <p><a href="https://lazysplit.online/" rel="noopener" target="_blank">Visit lazysplit.online</a></p>
       </div>
     </div>

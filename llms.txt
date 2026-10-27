@@ -18,7 +18,7 @@ This page has an AI agent ("Ask my agent") that answers questions about Ahmed's 
 
 ## Projects
 
-- LazySplit, own product (02/2026 to now), https://lazysplit.online/. A bill-splitting web app Ahmed designed, built and runs, live with real users and paid plans: scan a receipt, share one link, and everyone claims what they had. Receipt scanning is a vision LLM pipeline (Gemini 3.8 Flash through OpenRouter, Qwen3-VL fallback) with a strict JSON schema and an arithmetic check for tax and service lines; every item stays editable before sharing. Friends join without an account and claim live. Business rules live in the database (row-level security, triggers, server-side quotas and rate limits) with adversarial SQL tests. Rebuilt from a written spec in 14 phases with Claude Code. Stack: Next.js, React, Supabase, Stripe, Vercel.
+- LazySplit, own product (02/2026 to now), https://lazysplit.online/. Ahmed got tired of paying for a group and chasing everyone later, especially when the total wasn't an even split, so he made a spreadsheet where people could claim items. That turned into LazySplit, built with Claude Code and Pi: scan a receipt or type it in, share a link, and everyone claims what they had. Joining needs no account or download, and the creator can assign items for anyone who won't open the link.
 
 ## Writing
 
