@@ -44,5 +44,5 @@ This page has an AI agent ("Ask my agent") that answers questions about Ahmed's 
 - [Portfolio](https://alvee1994.github.io/portfolio/)
 - [LinkedIn](https://www.linkedin.com/in/alveeahmed)
 - [GitHub](https://github.com/alvee1994)
-- [CV (PDF)](https://alvee1994.github.io/portfolio/assets/Ahmed_Alvee_CV.pdf)
+- [CV (PDF)](https://alvee1994.github.io/portfolio/assets/Ahmed_Alvee_resume.pdf)
 - Email: ahmedalv94@gmail.com
